@@ -65,7 +65,7 @@ Client APIs:
 
 > You can also send event data in JSON to the RESTFul web service of Rakam but we suggest you > to use Rakam client libraries if it's available. You can also find the specification of the > client APIs if you want to develop a client library for Rakam. [Specification]()
 
-You can think of event as the row of a table in RDBMSs. Similar to the tables in RDBMSs, we have event collections that store the events. Event collections also have schemas but we don't enforce you do define the schema before collecting events. We can generate the schema in runtime automatically so that you don't have to do that manually.
+You can think of event as the row of a table in RDBMSs. Similar to the tables in RDBMSs, we have event collections that store the events. In order to use Rakam, you need to create project with a unique name and send event to that project. The events are stored in event collections inside a project. Event collections also have schemas but we don't enforce you do define the schema before collecting events. We can generate the schema in runtime automatically so that you don't have to do that manually.
 
 We have aimed to make the schema evolution easy since the analytical systems almost always need it and it can be hard to do manually in runtime. As you start to send your events to Rakam, it will create the schemas based on the value types of the fields that you send as event properties. Let's say you send the following event to the Rakam:
 
