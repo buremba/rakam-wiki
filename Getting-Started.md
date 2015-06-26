@@ -69,7 +69,7 @@ You can think of event as the row of a table in RDBMSs. Similar to the tables in
 
 We have aimed to make the schema evolution easy since the analytical systems almost always need it and it can be hard to do manually in runtime. As you start to send your events to Rakam, it will create the schemas based on the value types of the fields that you send as event properties. Let's say you send the following event to the Rakam:
 
-```json
+```javascript
 {
     "collection": "pageView",
     "properties": {
