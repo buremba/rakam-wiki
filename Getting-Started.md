@@ -103,15 +103,9 @@ CREATE TABLE pageView (
 
 Similarly, when Rakam encounters a new field, it will update the table with the new field. Therefore, even though Rakam has the ability to update the schema, it's always a good practice to have a fixed set of fields because the events are usually not stored as JSON data in underlying database, they usually have a strict schema.
 
-> Rakam will check the fields and if they exists and values match the existing schema,
-> the event will be sent to the storage backend as you sent.
-> However; let's say the field *ip* is created previously and the type is *integer*.
-> Since *string* can't cast to *integer*, the field *ip* will be ignored.
+> Rakam will check the fields and if they exists and values match the existing schema, the event will be sent to the storage backend as you sent. However; let's say the field *ip* is created previously and the type is *integer*. Since *string* can't cast to *integer*, the field *ip* will be ignored.
 
-> The schema evolution feature may cause a security problem if you don't have the control on > the client side that sends the events to Rakam. For example, if you install the Javascript > tracker on website that sends the events directly from the users' browsers to Rakam,
-> an attacker may send randomly generated fields to Rakam so you may end up
-> event collections that have 100s of fields.
-> Therefore we suggest disabling dynamic schemas using *disable_dynamic_schema=true* once you created the schema of your event collections or disable this feature completely on production. See config: [disable_dynamic_schema]().
+> The schema evolution feature may cause a security problem if you don't have the control on > the client side that sends the events to Rakam. For example, if you install the Javascript > tracker on website that sends the events directly from the users' browsers to Rakam, an attacker may send randomly generated fields to Rakam so you may end up event collections that have 100s of fields. Therefore we suggest disabling dynamic schemas using *disable_dynamic_schema=true* once you created the schema of your event collections or disable this feature completely on production. See config: [disable_dynamic_schema]().
 
 #### Event Mappers
 When events data is parsed, the second step is mapping events with Event Mappers. Since the data will be stored in denormalized format, you may pre-process the events before storing in backend storages. This pre-processing step may be attaching values based on existing ones or deleting the existing field values.
