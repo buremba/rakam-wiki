@@ -1,7 +1,7 @@
 # Postgresql Backend
 > Rakam supports Postgresql >= 9.4.
 
-It's possible to just use Postgresql as backend storage for every type of data. If your data can fit in one node, it's the suggested deployment type since Postgresql is quite mature and feature-complete way to use Rakam. The other deployment types usually target *big data* so they have more complex architectures than this one. However; Postgresql is actually a good choice for analytical data storage since it supports [Window function]() and [With statements](). It also has advanced features such as triggers, listen/notify that are required for Rakam. You can also also optimize Postgresql for your use cases.
+It's possible to just use Postgresql as backend storage for Rakam. If your data can fit in one node, it's the suggested deployment type since Postgresql is quite mature and feature-complete way to use Rakam. The other deployment types usually target *big data* so they have more complex architectures than this one. However; Postgresql is actually a good choice for analytical data storage since it supports [Window function]() and [With statements](). It also has advanced features such as triggers, listen/notify that are required for Rakam. You can also also optimize Postgresql for your use cases.
 
 ## Storing Events
 Rakam uses Postgresql SCHEMAs to abstract projects between each other. Each project has its own SCHEMA and **events of event collections** are stored as **rows of tables**.
