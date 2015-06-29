@@ -41,7 +41,6 @@ There's nothing fancy here, it uses continuous query tables under the hood.
 ##### Event Stream Module <sub>*[api-doc]()*</sub>
 When a user subscribe an event stream, we automatically record the last offset in Kafka for the subscribed event collections.
 
-
 ## Master Election using Zookeeper
 Since Apache Kafka already uses Zookeeper for coordination, we take advantage of Zookeeper since it's possible to elect master node easily using client libraries for Zookeeper. We use [Curator framework](https://github.com/Netflix/curator/wiki/Framework)'s master election feature that is based on Zookeeper distributed locks.
 The master node takes care of Kafka offsets. It executes queries that pulls data from Kafka with last committed offset and process it on PrestoDB. If the query succeeds, it updates the last offset periodically.
