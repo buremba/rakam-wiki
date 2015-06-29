@@ -24,7 +24,7 @@ When the query is re-written, Rakam send the query directly to PrestoDB and it e
 #### Materialized Query Tables
 Fortunately, PrestoDB supports *CREATE TABLE AS* syntax that materialize query results to an external table. We use that feature internally for materialized query table. The materialized query tables uses a special prefix and stored in same schema with event collections. The query parser re-writes the table names that corresponds to the internal name of the materialized query tables. When the materialized query table is refreshed, we *DELETE* the whole table and perform the same *CREATE TABLE AS* query that materialize the last snapshot.
 
-### Continuous Query Tables
+#### Continuous Query Tables
 We use an in-house PrestoDB connector called [presto-streaming](https://github.com/buremba/presto-streaming) internally for continious processing. It uses internal PrestoDB aggregators that PrestoDB uses for aggregation queries however unlike the way PrestoDB works, the presto-streaming persists aggregators in-memory and exposes them as PrestoDB tables. We process the micro-batches periodically by fetching data from Kafka and feed the table with pre-aggregated data. The table can be thought as state machines, every time we feed the table it updates its state so that it does incremental computation. As a result, PrestoDB connector works like a stream processing engine. You can find the technical details in [presto-streaming](https://github.com/buremba/presto-streaming) page.
 
 ## Modules
