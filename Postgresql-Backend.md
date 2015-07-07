@@ -37,7 +37,7 @@ Since Postgresql does not have any streaming feature, we implemented this functi
 - Update existing keys by merging the values based on the aggregation function. (if aggregation function is *min*, then *min(existingValue, microBatchValue)* will be performed but if it's *count* it will be *existingValue+microBatchValue*)
 - Release lock for continious query table.
 
-We extensively use [CTEs](http://www.postgresql.org/docs/9.4/static/queries-with.html) in order to these operations in one transaction and [explicit locking](http://www.postgresql.org/docs/9.4/static/explicit-locking.html) in order to lock whole tables.
+We extensively use [CTEs](http://www.postgresql.org/docs/9.4/static/queries-with.html) in order to these operations in one transaction and [explicit locking](http://www.postgresql.org/docs/9.4/static/explicit-locking.html) in order to lock tables in order to avoid conflicts when merging data.
 
 ## Modules
 
