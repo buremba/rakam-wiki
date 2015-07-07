@@ -31,11 +31,11 @@ Also all statements other than *SELECT* is forbidden for security reasons. Simil
 Fortunately, Postgresql supports [MATERIALIZED VIEWs](http://www.postgresql.org/docs/9.4/static/sql-creatematerializedview.html) that materialize any given query to a table. We use that feature in order to create tables and  perform [REFRESH MATERIALIZED VIEW](http://www.postgresql.org/docs/9.4/static/sql-refreshmaterializedview.html) whenever it's triggered manually or periodically if automatic refresh option is set in report definition. 
 #### Continuous Query Tables
 Since Postgresql does not have any streaming feature, we implemented this function in application code. Currently, we parse the SQL query and check if it's an aggregation query since it's required for incremental computation. Then depending on the GROUP BY clause, we find out the keys in aggregation query and based on those keys update the the continuous query table periodically. Since Postgresql does not expose commit log mechanism by default, we use an extra field called *time* in events that indicates the time of the creation of the events. The process is as follows:
-- Execute a query that fetches new events based on *time* field and perform continuous query on the dataset. (Let's say the continious query is SELECT COUNT(*) FROM stream and we want to process *pageView* event collection. Then, the query that will be executed peridocally is similar to this one: *SELECT COUNT(*) FROM pageView WHERE time > [last commit (epoch second]*)
-- Lock continious query table in order to avoid any race condition.
-- Insert missing keys to the continious query table.
+- Execute a query that fetches new events based on *time* field and perform continuous query on the dataset. (Let's say the continuous query is **SELECT COUNT(*) FROM stream** and we want to process *pageView* event collection. Then, the query that will be executed peridocally is similar to this one: *SELECT COUNT(*) FROM pageView WHERE time > [last commit (epoch second]*)
+- Lock continuous query table in order to avoid any race condition.
+- Insert missing keys to the continuous query table.
 - Update existing keys by merging the values based on the aggregation function. (if aggregation function is *min*, then *min(existingValue, microBatchValue)* will be performed but if it's *count* it will be *existingValue+microBatchValue*)
-- Release lock for continious query table.
+- Release lock for continuous query table.
 
 We extensively use [CTEs](http://www.postgresql.org/docs/9.4/static/queries-with.html) in order to these operations in one transaction and [explicit locking](http://www.postgresql.org/docs/9.4/static/explicit-locking.html) in order to lock tables in order to avoid conflicts when merging data.
 
