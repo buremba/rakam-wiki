@@ -1,7 +1,3 @@
-[Home](Home)
-
-#### Rakam Documentation
-
 - [Get Started](Get-Started)
 - [Core Concept](Core-Concept)
 - [Modules](Modules)
