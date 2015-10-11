@@ -1,4 +1,5 @@
 - [Getting Started](Getting-Started)
+- [Collecting Events](Collecting-Events)
 - [Core Concept](Core-Concept)
 - [Modules](Modules)
 
