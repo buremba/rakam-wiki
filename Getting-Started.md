@@ -19,8 +19,11 @@ mvn clean install package -DskipTests -Pbundled-with-ui
 Since we already use Maven, you can import Rakam to your IDE using the root pom.xml file. We recommend using Intellij IDEA since Rakam is also developed in IDEA. You should import Rakam as Maven project to your favourite IDE, the configuration for executing Rakam is as follows:
 
 Main Class: `org.rakam.ServiceStarter`
+
 VM Options: `-ea -Xmx2G -Dconfig=config.properties -Dlog.levels-file=etc/log.properties`
+
 Working directory: `$MODULE_DIR$`
+
 Use classpath of module: `rakam`
 
 #### Event Mappers
