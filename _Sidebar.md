@@ -1,4 +1,4 @@
-- [Get Started](Get-Started)
+- [Getting Started](Getting-Started)
 - [Core Concept](Core-Concept)
 - [Modules](Modules)
 
