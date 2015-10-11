@@ -5,8 +5,7 @@
 #### Design Docs
 
 - [Postgresql Backend](Postgresql-Backend)
-- [Kafka & PrestoDB Backend](Kafka-&-PrestoDB-Backend)
-- [Amazon Kinesis & S3 & Redshift Backend](Amazon-Kinesis-&-S3-&-Redshift-Backend)
+- [PrestoDB Backend](PrestoDB-Backend)
 - [Architecture](Architecture)
 
 #### Contributor
