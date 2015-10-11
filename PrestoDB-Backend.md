@@ -29,16 +29,16 @@ We use an in-house PrestoDB connector called [presto-streaming](https://github.c
 
 ## Modules
 
-##### Customer Analytics Module <sub>*[api-doc]()*</sub>
+##### Customer Analytics Module
 Your can plug in your user database or setup a new Postgresql database for user database. In order to be able to JOIN between event dataset and user data, you also need to add your database to PrestoDB as connector.
 
-##### CRM module (Customer Mailbox) <sub>*[api-doc]()*</sub>
+##### CRM module (Customer Mailbox)
 This deployment type does not offer any solution for CRM module. We suggest Postgresql for this purpose since you can use PrestoDB as event database and Postgresql for CRM module. You just need to configure the settings in config.properties file.
 
-##### Real-time Analytics Module <sub>*[api-doc]()*</sub>
+##### Real-time Analytics Module
 There's nothing fancy here, it uses continuous query tables under the hood.
 
-##### Event Stream Module <sub>*[api-doc]()*</sub>
+##### Event Stream Module
 When a user subscribe an event stream, we automatically record the last offset in Kafka for the subscribed event collections.
 
 ## Master Election using Zookeeper
