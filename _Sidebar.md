@@ -1,6 +1,7 @@
 - [Getting Started](Getting-Started)
 - [Collecting Events](Collecting-Events)
 - [Core Concept](Core-Concept)
+- [Event Mappers](Event-Mappers)
 - [Modules](Modules)
 
 #### Design Docs
