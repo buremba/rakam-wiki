@@ -1,4 +1,4 @@
-## Collecting Events <sub>*[api-doc](//getrakam.com/api/tags=event,collection)*</sub>
+## Collecting Events <sub>*[api-doc](//api.getrakam.com/#event)*</sub>
 Rakam provides client libraries for a few programming languages for collecting events easily.
 Also you can send events Rakam in JSON format to an endpoint using a RESTFul Web Service that Rakam provides. 
 
