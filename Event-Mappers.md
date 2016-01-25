@@ -16,14 +16,14 @@ Moreover, the HTML Geolocation API is not available in older browsers so you nee
 Currently, IP Geolocation module supports these attributes: `country`, `country_code`, `region`, `city`, `latitude`, `longitude`, `timezone`
 By default, `ip` field will be used to resolve geolocation data but you can also customize module to use the socket address of the event collection request.
 
-[IP Geolocation Module Configuration Reference](//getrakam.com/config#org.rakam.collection.mapper.geoip.GeoIPModule)
+[IP Geolocation Module Configuration Reference](//rakam.io/config#org.rakam.collection.mapper.geoip.GeoIPModule)
 
 #### Website Referrer Module
 Parses `referrer` attribute of the events, analyze referer address and attaches additional attributes 
 `referrer_medium`, `referrer_source` and `referrer_term` that are related with referrer address.
 It uses [Snowplow Referer Parser](https://github.com/snowplow/referer-parser) library under the hood.
 
-[Website Mapper Module Configuration Reference](//getrakam.com/config#org.rakam.module.website.WebsiteEventMapperModule)
+[Website Mapper Module Configuration Reference](//rakam.io/config#org.rakam.module.website.WebsiteEventMapperModule)
 
 #### Website User-Agent Module
 Parses `user_agent` attribute that contains raw user-agent data of the events, 
@@ -31,7 +31,7 @@ extract it and attaches `user_agent_family`, `user_agent_version`, `os`, `os_ver
 It also removes `user_agent` attribute from the events since the added attributes already represent it.
 It uses [`ua-parser library`](https://github.com/ua-parser/uap-java) in order to parse user agent attribute. 
 
-[Website Mapper Module Configuration Reference](//getrakam.com/config#org.rakam.module.website.WebsiteEventMapperModule)
+[Website Mapper Module Configuration Reference](//rakam.io/config#org.rakam.module.website.WebsiteEventMapperModule)
 
 #### Embedded Event Mappers in Modules
 
