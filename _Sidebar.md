@@ -5,7 +5,7 @@
 - [Modules](Modules)
 
 #### Trackers
-- [Javascript Tracker](//github.com/buremba/rakam-javascript/blob/master/README.md)
+- [Javascript Tracker](//github.com/buremba/rakam-javascript/master/README)
 
 #### Design Docs
 
