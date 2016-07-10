@@ -74,14 +74,35 @@ Event mappers can be activated via Guice Multibinder binding. After you created 
     timeMapper.addBinding().to(MyUserPropertyMapper.class).in(Scopes.SINGLETON);
     
 ## Continuous Query Service
-Cont
+Contionuous query service is responsible from creating and deleting continuous queries. When you create a continuous query, the database continuously update the query state and allow you to reference continuous queries with `continuous` schema in SQL queries.
+Let's say that you created a continuous query `SELECT device_type, count(*) as total FROM pageview GROUP BY device_type` and saved it with table name `devices`. When you execute the following query `SELECT device_type, total FROM continuous.devices ORDER BY total DESC LIMIT` the system will fetch the state from continuous query, sorts the results and return it without actually processing the data in `pageview` table.
+
+If you want to implement a custom continuous query service, you need to create a class and implement `ContinuousQueryService` interface, then you need bind it in your module class.
+
+Currently, there are three Continuous Query Service implementations. The first one is for Presto deployment and uses Presto streaming module created for Rakam. The other one is for Clickhouse deployment and uses `AggregatingMergeTree` table engine in Clickhouse database. The last one is for Postgresql but since Postgresql doesn't provide a way to perform stream processing on dataset, we use VIEWs in Postgresql.
 
 ## Materialized Query Tables
-## User modules
+Materialized query tables are similar to continuous queries but instead of continuosly processing data, it just materializes the query result and allow you to query the materialized data. The functionality is exactly same as Materialized views in RDBMSs but it also provides lazy materialization at query time, data expiration and partitioning for efficiently analzing event dataset.
 
+If you want to implement custom Materialized Query Service, you need to create a class and implement `MaterializedQueryService` interface, then you need bind it in your module class.
+
+## User modules
+User module is simply allows you to track your users, their attributes and communicate with them.
 #### UserStorage
+`UserStorage` stores user attributes and implements the methods for incrementing a user attribute, appending / prepending values to array user attributes, and delete / set / set_once actions for user attributes. Currently, we provide Postgresql and Dynamodb as user storage implementations but you can also implement your own database or just plug an existing database to Rakam.
+
 #### AbstractUserService
-#### UserMailboxStorage
+AbstractUserService perform user related actions in API. For user storage actions, it works similar to proxy. For example, set_properties endpoint invokes set_property method of AbstractUserService, then it executes set_property method of UserStorage implementation.
+
+It's also responsible for querying user events based on user attributes and user groups. Since we abstract user attributes and event storage in Rakam, performing queries that needs to process both user attributes and events is not that easy. For example, if you use Presto deployment and want to get users who has attribute `paid` set to true and did at least 10 pageview events, PrestoUserService fetches user ids who has `paid` set to true from UserStorage and constructs a Presto SQL query that limits users for that set. However if you store both events and user attributes in Postgresql, PostgresqlUserService simply JOINs the datasets in your Postgresql database.
+
+#### UserActionService
+User action mechanism is simply created for you to interact with your users. Currently, the only user action is email, it allows you to send email to your users. You can spesify filters for users based on their events (i.e. did at least 10 checkpoint since this monday) and their attributes (i.e. the user language is turkish) and perform an action for the user set.
+
+If you want to implement a custom User Action, you need to create a class and implement `org.rakam.plugin.userUserActionService`. You can find an example user action implementation in `org.rakam.plugin.user.UserEmailActionService` in rakam-main module. User actions also implements `HttpService` because we also create new endpoints for the user actions. 
+
+## Packaging & installing modules
+Creating new modules for Rakam is quite simple. You just need to add `rakam-spi` maven dependency to your project, create a class for your module and extend the class from `org.rakam.plugin.RakamModule`, add `@AutoService(RakamModule.class)` in order to make Rakam discover your new module and bind your services, interface implementations bind Guice bindings. in `public void setup(Binder)` method. You can find examples in rakam-main projects.
 
 ## ServiceLoader mechanism
-## Packaging & installing modules
+Almost all features of Rakam are added as modules. We simply extends `org.rakam.plugin.RakamModule`, bind new services / functionalies in our module class and add `@AutoService(RakamModule.class)` annotation to the class. `AutoService` automatically creates ServiceLoader bindings for our modules. When Rakam is initilialized, it looks for modules that is installed via ServiceLoader in classpath and installs them.
