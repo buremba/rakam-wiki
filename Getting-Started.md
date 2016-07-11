@@ -11,9 +11,8 @@ You can try the master branch by pulling the source code from Github and buildin
 ```sh
 git clone https://github.com/buremba/rakam.git
 cd rakam/rakam
-mvn clean install package -DskipTests -Pbundled-with-ui
+mvn clean install package -DskipTests
 ```
-> `-Pbundled-with-ui` argument is an optional argument that enables a profile in Maven that downloads and builds [Rakam Web application](//github.com/buremba/rakam-ui) to your local environmental. If you already downloaded it, you may use [`ui-directory setting`](//getrakam.com/config#org.rakam.ui.RakamUIModule) in your config file.
 
 #### Running Rakam in your IDE
 Since we already use Maven, you can import Rakam to your IDE using the root pom.xml file. We recommend using Intellij IDEA since Rakam is also developed in IDEA. You should import Rakam as Maven project to your favourite IDE, the configuration for executing Rakam is as follows:
