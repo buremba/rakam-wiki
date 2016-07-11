@@ -17,4 +17,3 @@
 - [Developing Modules](Developing-Modules)
 - [Coding Guidelines](Coding-guidelines)
 - [Local instance setup](Local-Instance-Setup)
-- [Testing](Testing)
