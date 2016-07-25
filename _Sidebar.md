@@ -16,6 +16,14 @@
 - [C# Library](//github.com/buremba/rakam-csharp-client/master/README)
 - [Ruby Library](//github.com/buremba/rakam-ruby-client/master/README)
 
+
+#### Rakam BI (WIP)
+- [Dashboards](//github.com/buremba/rakam-wiki/master/Rakam-BI/Dashboards)
+- [Reports](//github.com/buremba/rakam-wiki/master/Rakam-BI/Reports)
+- [Collaboration](//github.com/buremba/rakam-wiki/master/Rakam-BI/Collaboration)
+- [Recipes](//github.com/buremba/rakam-wiki/master/Rakam-BI/Recipes)
+- [Security](//github.com/buremba/rakam-wiki/master/Rakam-BI/Security)
+
 #### Design Docs
 
 - [Postgresql Backend](//github.com/buremba/rakam-wiki/master/Postgresql-Backend)
