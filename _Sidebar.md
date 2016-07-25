@@ -24,6 +24,11 @@
 - [Recipes](//github.com/buremba/rakam-wiki/master/Rakam-BI/Recipes)
 - [Security](//github.com/buremba/rakam-wiki/master/Rakam-BI/Security)
 
+
+#### Integrations (WIP)
+- [Twitter Datasource](//github.com/buremba/rakam-twitter/master/README)
+- [Data Importer from third-party services](//github.com/buremba/rakam-data-importer/master/README)
+ 
 #### Design Docs
 
 - [Postgresql Backend](//github.com/buremba/rakam-wiki/master/Postgresql-Backend)
