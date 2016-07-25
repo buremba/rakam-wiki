@@ -1,8 +1,8 @@
-- [Getting Started](/Getting-Started)
-- [Collecting Events](/Collecting-Events)
-- [Core Concept](/Core-Concept)
-- [Event Mappers](/Event-Mappers)
-- [Modules](/Modules)
+- [Getting Started](//github.com/buremba/rakam-wiki/master/Getting-Started)
+- [Collecting Events](//github.com/buremba/rakam-wiki/master/Collecting-Events)
+- [Core Concept](//github.com/buremba/rakam-wiki/master/Core-Concept)
+- [Event Mappers](//github.com/buremba/rakam-wiki/master/Event-Mappers)
+- [Modules](//github.com/buremba/rakam-wiki/master/Modules)
 
 #### Trackers
 - [Javascript Tracker](//github.com/buremba/rakam-javascript/master/README)
@@ -11,10 +11,10 @@
 
 #### Design Docs
 
-- [Postgresql Backend](/Postgresql-Backend)
-- [PrestoDB Backend](/PrestoDB-Backend)
-- [Architecture](/Architecture)
+- [Postgresql Backend](//github.com/buremba/rakam-wiki/master/Postgresql-Backend)
+- [PrestoDB Backend](//github.com/buremba/rakam-wiki/master/PrestoDB-Backend)
+- [Architecture](//github.com/buremba/rakam-wiki/master/Architecture)
 
 #### Contributor
-- [Developing Modules](/Developing-Modules)
-- [Coding Guidelines](/Coding-guidelines)
+- [Developing Modules](//github.com/buremba/rakam-wiki/master/Developing-Modules)
+- [Coding Guidelines](//github.com/buremba/rakam-wiki/master/Coding-guidelines)
