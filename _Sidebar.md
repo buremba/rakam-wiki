@@ -9,6 +9,13 @@
 - [IOS Tracker](//github.com/buremba/rakam-ios/master/README)
 - [Android Tracker](//github.com/buremba/rakam-android/master/README)
 
+#### Client Libraries
+- [Java Library](//github.com/rakam-io/rakam-java-client/master/README)
+- [Php Library](//github.com/buremba/rakam-php-client/master/README)
+- [Python Library](//github.com/buremba/rakam-python-client/master/README)
+- [C# Library](//github.com/buremba/rakam-csharp-client/master/README)
+- [Ruby Library](//github.com/buremba/rakam-ruby-client/master/README)
+
 #### Design Docs
 
 - [Postgresql Backend](//github.com/buremba/rakam-wiki/master/Postgresql-Backend)
