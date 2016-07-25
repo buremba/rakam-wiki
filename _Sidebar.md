@@ -27,7 +27,7 @@
 
 #### Integrations (WIP)
 - [Twitter Datasource](//github.com/buremba/rakam-twitter/master/README)
-- [Data Importer from third-party services](//github.com/buremba/rakam-data-importer/master/README)
+- [Data Importer for third-party services](//github.com/buremba/rakam-data-importer/master/README)
  
 #### Design Docs
 
