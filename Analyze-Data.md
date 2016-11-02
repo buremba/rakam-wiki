@@ -42,12 +42,18 @@ You can find the documentation of SQL syntax in Presto's website: [https://prest
 ### Collections (raw data) (collection.*)
 *collection* schema can be used for accessing raw event data. When you send an event via collection API, Rakam will parse it, create the schema from event properties and insert it to a physical table.
 
-Ex. ```sql SELECT _device_type, count(*) as count from collection.pageview GROUP BY _device_type```
+Ex. 
+```sql 
+SELECT _device_type, count(*) as count from collection.pageview GROUP BY _device_type
+```
 
 ### Materialized Tables (materialized.*)
 *materialized* schema is used for accessing created materialized tables. They're similar to materialized table concept in most of the RDBMSs but also provide incremental materialization and update interval features. When you reference a materialized table, Rakam checks the last updated time for the materialized table and update it if it's not fresh. Materialized tables are quite useful analytics services, you can execute and materialize the result of complex SQL queries periodically or lazily and serve them in dashboard with low-latency. You can create materialized views via Rakam API [(API Documentation)](https://api.rakam.io/#materialized-view) or using report playground webpage in Rakam BI.
 
-Ex. ```sql SELECT count from materialized.device_type_views WHERE _device_type = 'Android'```
+Ex. 
+```sql 
+SELECT count from materialized.device_type_views WHERE _device_type = 'Android'
+```
 
 ### Continuous Queries (continuous.*)
 *continuous* schema is used for continuous queries. Similar to materialized tables, you can create continuous queries via Rakam API [(API Documentation)](https://api.rakam.io/#continuous-query) or using report playground webpage in Rakam BI. The main difference between continuous queries and materialized tables is that continuous queries are real-time and mutable. The continuous queries must be aggregation queries, Rakam will update the aggregation state in near real-time using our in-house stream processing engine.
@@ -74,7 +80,10 @@ External data-sources can be used for joining your external databases and files 
 
 The external databases use a schema identifier specified by you (mysqldb), and the remote files use remotefile schema and the identifier as table name that is set by you.
 
-ex. ```sql SELECT count(*) FROM mysqldb.users JOIN remotefile.my_csv_file ON (my_csv_file.user_id = users.id)```
+ex. 
+```sql 
+SELECT count(*) FROM mysqldb.users JOIN remotefile.my_csv_file ON (my_csv_file.user_id = users.id)
+```
 
 #### Special tables
 
