@@ -27,16 +27,27 @@ Real-time API basically provides you a simple API for you to create continuous q
 
 ### User API
 
-If you activate user module, you can also analyze your users by their attributes or events with User API, get events for an individual user or perform action (send email to a set of users etc.) with User API. 
+If you activate user module, you can also analyze your users by their attributes or events with User API, get events for an individual user or perform action (send email to a set of users etc.) with User API. You can find the API documention [here](https://api.rakam.io/#user) or the webpage for this feature in Rakam BI from [here](https://app.rakam.io/people).
 
 ### SQL Query API (low-level API)
 
+SQL Query API allows you to run complex queries on you event data-set. The syntax is based on Presto's ANSI SQL, when you send a query, we parse it and re-write it for backend database. Currently, we provide 5 schemas that can be used for different purposes, you can reference tables from different schemas in same SQL query, join them and materialize or continuously calculate the result if you need.
 
+The SQL Query API allows you export the result as CSV or JSON and sample the referenced tables automatically if you need low latency response. You can find the API documentation [here](https://api.rakam.io/#execute-query-on-event-data-set), you also run SQL queries and create reports in [playground page](https://app.rakam.io/report-playground) of Rakam BI. Note that API uses text/event-stream content type, it will stream the query stats (percentage, processed rows and bytes etc.) in real-time.
 
 #### Schemas
+
 ##### Collections (raw data) (collection.*)
+collection schema can be used for accessing raw event data. When you send an event via collection API, Rakam will parse it, create the schema from event properties and insert it to a physical table.
+
 ##### Materialized Tables (materialized.*)
+materialized schema is used for accessing created materialized tables. They're similar to materialized table concept in most of the RDBMSs but also provide incremental materialization and update interval features. When you reference a materialized table, Rakam checks the last updated time for the materialized table and update it if it's not fresh. Materialized tables are quite useful analytics services, you can execute and materialize the result of complex SQL queries periodically or lazily and serve them in dashboard with low-latency.
+
 ##### Continuous Queries (continuous.*)
+continuous schema is used for 
+
 ##### Remote Tables (external.*)
 ###### Databases
 ###### Remote files
+
+#### Special tables
