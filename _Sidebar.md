@@ -1,7 +1,8 @@
 - [Getting Started](//github.com/buremba/rakam-wiki/master/Getting-Started)
-- [Collecting Events](//github.com/buremba/rakam-wiki/master/Collecting-Events)
 - [Core Concept](//github.com/buremba/rakam-wiki/master/Core-Concept)
-- [Event Mappers](//github.com/buremba/rakam-wiki/master/Event-Mappers)
+- [Collect Data](//github.com/buremba/rakam-wiki/master/Collecting-Events)
+- [Analyze Data](//github.com/buremba/rakam-wiki/master/Analyze-Data)
+- [Event Enrichment](//github.com/buremba/rakam-wiki/master/Event-Mappers)
 - [Modules](//github.com/buremba/rakam-wiki/master/Modules)
 
 #### Trackers
