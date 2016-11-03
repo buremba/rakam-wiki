@@ -1,18 +1,29 @@
-## Collecting Events <sub>*[api-doc](//api.getrakam.com/#event)*</sub>
-Rakam provides client libraries for a few programming languages for collecting events easily.
-Also you can send events Rakam in JSON format to an endpoint using a RESTFul Web Service that Rakam provides. 
+An event is an immutable action defined in your specific use-case. They have collection name and properties. If you have a website, all page views are events. You may use `pageview` as collection name and url, client location data etc. are properties. Or if you are an IoT company, all the sensor data coming from your devices is an event. Events should have an actor and timestamp of the occurence. Rakam provides multiple methods for collecting events. It has high-level methods such as trackers, client libraries, importers and also <sub>[RESTFul API](//api.getrakam.com/#event)*</sub>, webhook support, schedulers for collecting events from multiple sources. You can embed trackers in your client applications, send events from your favourite programming languages via client libraries or directly using RESTFul API, integrate your third party services via webhook or schedulers. We aim to make Rakam as your data hub so you should be able to collect data from everywhere to Rakam.
+
+You don't need to define the collection schema, Rakam automatically handles schema evolution of the events for you. One ceveat is that if you have a property called *ip* and the type is *integer*, it tries to cast *string* to *integer* and if it fails the field *ip* will be ignored.
+
+> Rakam will check the fields and if they exists and values match the existing schema, the event will be sent to the storage backend as you sent. 
+
+# Trackers
+
+Currently we have [Javascript tracker](https://rakam.io/doc/buremba/rakam-javascript/master/README) for websites and [Android SDK](https://rakam.io/doc/buremba/rakam-android/master/README) for Android applications. We're also actively working on [IOS tracker](https://rakam.io/doc/buremba/rakam-ios/master/README). Trackers are the preferred way to collect data because they're easy to integrate and automatically collect most of the data you need. For example, Javascript tracker automatically collect data about client machine, keep track of user ids between sessions and provide ways to collect platform related data such as [time on page](https://rakam.io/doc/buremba/rakam-javascript/master/README#timer) the user spend in website.
+
+# Client Libraries
+
+If you want to send events directly from your applications, you can use client libraries. They're basically a wrapper that uses <sub>[RESTFul API](//api.getrakam.com/#event)*</sub>.
 
 Client APIs:
-- [Javascript Client Library]()
-- [Java Client Library]()
-- [Python Client Library]()
-- [Sending event data in JSON data]()
+- [Javascript Client Library](https://rakam.io/doc/rakam-io/rakam-java-client/master/README)
+- [Java Client Library](https://rakam.io/doc/rakam-io/rakam-php-client/master/README)
+- [Python Client Library](https://rakam.io/doc/rakam-io/rakam-python-client/master/README)
+- [C# Client Library](https://rakam.io/doc/rakam-io/rakam-csharp-client/master/README)
+- [Ruby Client Library](https://rakam.io/doc/rakam-io/rakam-ruby-client/master/README)
 
-> You can also send event data in JSON to the RESTFul web service of Rakam but we suggest you > to use Rakam client libraries if it's available. You can also find the specification of the > client APIs if you want to develop a client library for Rakam. [Specification]()
+Client libraries are current is in beta, they're automatically generated with Swagger. They provide classes and methods for all API endpoints in your Rakam API, you can also directly use [RESTFul API](https://api.rakam.io) to send data to Rakam.
 
-You can think of event as the row of a table in RDBMSs. Similar to the tables in RDBMSs, we have event collections that store the events. In order to use Rakam, you need to create project with a unique name and send event to that project. The events are stored in event collections inside a project. Event collections also have schemas but we don't enforce you do define the schema before collecting events. We can generate the schema in runtime automatically so that you don't have to do that manually.
+# RESTFul Libraries
 
-We have aimed to make the schema evolution easy since the analytical systems almost always need it and it can be hard to do manually in runtime. As you start to send your events to Rakam, it will create the schemas based on the value types of the fields that you send as event properties. Let's say you send the following event to the Rakam:
+<sub>[RESTFul API](//api.getrakam.com/#event)*</sub> powers trackers and client libraries. You can always use the directly. Here is an example event:
 
 ```javascript
 {
@@ -30,24 +41,21 @@ We have aimed to make the schema evolution easy since the analytical systems alm
     }
 }
 ```
-Rakam will generate the schema for this event collection based on the values that you sent. Then, creates the collection in backend storage. For example, Postgresql backend will execute a CREATE TABLE query similar to this one:
 
-```sql
-CREATE TABLE pageView (
-    user_agent     TEXT,
-    locale         TEXT,
-    url            TEXT,
-    referrer       TEXT,
-    ip             TEXT,
-    platform       TEXT,
-    page_duration  BIGINT,
-    session_id     TEXT,
-    user           TEXT
-);
-```
+We also have 
 
-Similarly, when Rakam encounters a new field, it will update the table with the new field. Therefore, even though Rakam has the ability to update the schema, it's always a good practice to have a fixed set of fields because the events are usually not stored as JSON data in underlying database, they usually have a strict schema.
+> If you want to disable schema evolution for security reasons, you can use *disable_dynamic_schema=true* config once you created the schema of your event collections. It's recommended if you are running Rakam in production and open to the clients.
 
-> Rakam will check the fields and if they exists and values match the existing schema, the event will be sent to the storage backend as you sent. However; let's say the field *ip* is created previously and the type is *integer*. Since *string* can't cast to *integer*, the field *ip* will be ignored.
+# Webhook
 
-> The schema evolution feature may cause a security problem if you don't have the control on > the client side that sends the events to Rakam. For example, if you install the Javascript > tracker on website that sends the events directly from the users' browsers to Rakam, an attacker may send randomly generated fields to Rakam so you may end up event collections that have 100s of fields. Therefore we suggest disabling dynamic schemas using *disable_dynamic_schema=true* once you created the schema of your event collections or disable this feature completely on production. See config: [disable_dynamic_schema]().
+If you want to integrate third party services with Rakam and the third party service supports Webhook, you may use our webhook support. For example, Stripe sends payment and order data, Mailgun sends mail data (unsubscribe, click, open etc.) via webhook. Webhook support is implemented as follow: You define an identifier such as `mailgun_mails` and write JS code that transforms the request body and headers and build the event using JS code. When we receive a request from `[RAKAM_API]/webhook/collect/mailgun_mails`, we invoke the JS code if it returns JSON data, we add it as a new event.
+Webhook support is available in Rakam BI and we provide templates for common services such as Mailgun and Stripe.
+
+# Tasks
+
+Rakam tasks are basically scheduled or continuous jobs that fetches data from other services, transform them and send event data to Rakam. We have example [Twitter task](https://rakam.io/doc/buremba/rakam-twitter/master/README) that collects tweet data from Twitter in real-time and send it to Rakam. We also have scheduled jobs module in Rakam that uses services like AWS Lambda to run code with scheduled intervals and collect data to Rakam. You can right code with your favorite programming language, set the schedule interval and collect data from third party services. 
+
+# Importers
+
+If you're already using analytics services such as Mixpanel and want to import to Rakam, we have importers that fetches raw event data from them and send it to Rakam. Currently, we have Mixpanel integration, you can find the documentation [here](https://rakam.io/doc/buremba/rakam-data-importer/master/README).
+
