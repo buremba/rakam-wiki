@@ -85,6 +85,7 @@ ex.
 SELECT count(*) FROM mysqldb.users JOIN remotefile.my_csv_file ON (my_csv_file.user_id = users.id)
 ```
 
-#### Special tables
+> #### Special tables
 
-If you don't set a schema (i.e. ``` SELECT count(*) from pageview```), Rakam will use collection schema by default. The only exception is __all_ table and it's an alias for *UNION ALL* of all tables. When you execute a query similar to ```sql SELECT cast(_time as date), count(*) FROM _all GROUP BY 1```, Rakam will union all tables and expose __time_, __user_ and _properties_ columns.
+> If you don't set a schema (i.e. ``` SELECT count(*) from pageview```), Rakam will use collection schema by default. The only > exception is *_all* table and it's an alias for *UNION ALL* of all tables. When you execute a query similar to 
+> `SELECT   cast(_time as date), count(*) FROM _all GROUP BY 1 `, Rakam will union all tables and expose __time_, __user_ and > _properties_ columns.
