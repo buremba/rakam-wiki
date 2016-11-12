@@ -26,13 +26,13 @@ We have a few parameter types such as `string`, `date` and `date-range`.
 
 ## Charts
 
-Rakam supports various charts as shown in the picture below. You can turn data to charts and modify them dependending on your needs. When you select a chart type, its options will be appeared.
+Rakam supports various charts as shown in the picture below. You can turn data to charts and modify them depending on your needs. When you select a chart type, its options will be appeared.
 
 ![Rakam BI Pie Chart Example](pie-chart-example.png)
 
 ## Table configs
 
-The data table is dynamic an customizable, you can format the column values, specify the column height (useful if you render images as column values), add statistics in data tables etc.
+The data table is dynamic a customizable, you can format the column values, specify the column height (useful if you render images as column values), add statistics in data tables etc.
 
 ## Reports & Continuous Queries & Materialized views
 
