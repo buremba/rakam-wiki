@@ -22,13 +22,13 @@ We have a few parameter types such as `string`, `date` and `date-range`.
 > date-range exposes an array with to elements which incluces start date and end data. You can use it similar to `WHERE _time between {date[0]} and {date[1]}`.
 > The values of string parameters can be static or dynamic values that can indicate the table names, column names or the values of SQL queries. You can select the options with cog icon placed near the variable tab.
 
-![Rakam BI SQL Dynamic Parameters](sql-parameter.png)
+![Rakam BI SQL Dynamic Parameters](/Rakam-BI/sql-parameter.png)
 
 ## Charts
 
 Rakam supports various charts as shown in the picture below. You can turn data to charts and modify them depending on your needs. When you select a chart type, its options will be appeared.
 
-![Rakam BI Pie Chart Example](pie-chart-example.png)
+![Rakam BI Pie Chart Example](/Rakam-BI/pie-chart-example.png)
 
 ## Table configs
 
