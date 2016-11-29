@@ -37,12 +37,13 @@ Client libraries are current is in beta, they're automatically generated with Sw
         "platform": "web",
         "page_duration": 5,
         "session_id": "c88d7bad-af01-433f-bef1-dc107cee4334"
-        "user": "fdsy8fy7d"
+        "_user": "someuser@rakam.io"
+        "_time": 1480457838042
     }
 }
 ```
 
-We also have 
+If `_time` attribute is not set, Rakam automatically attaches the current timestamp to the event. If you know the user who did the event, you should also set `_user` attribute to user id. These attributes will be used by funnel, retention and event explorer modules.
 
 > If you want to disable schema evolution for security reasons, you can use *disable_dynamic_schema=true* config once you created the schema of your event collections. It's recommended if you are running Rakam in production and open to the clients.
 
