@@ -46,6 +46,13 @@ Ex.
 ```sql 
 SELECT _device_type, count(*) as count from collection.pageview GROUP BY _device_type
 ```
+### User table (users)
+If user module is active, Rakam API will update the *users* table when you send data to the user API endpoints. (https://api.rakam.io/#user). You can reference the *users* table in your queries. If you also have a collection called *users* you can reference it using *collection.users*
+
+Ex. 
+```sql 
+SELECT count(*) as count from users WHERE gender = 'male'
+```
 
 ### Materialized Tables (materialized.*)
 *materialized* schema is used for accessing created materialized tables. They're similar to materialized table concept in most of the RDBMSs but also provide incremental materialization and update interval features. When you reference a materialized table, Rakam checks the last updated time for the materialized table and update it if it's not fresh. Materialized tables are quite useful analytics services, you can execute and materialize the result of complex SQL queries periodically or lazily and serve them in dashboard with low-latency. You can create materialized views via Rakam API [(API Documentation)](https://api.rakam.io/#materialized-view) or using report playground webpage in Rakam BI.
