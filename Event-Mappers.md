@@ -3,6 +3,9 @@ Rakam enriches and cleans events collected by Rakam instances via event mappers.
 Currently, Rakam provides a limited set of event mappers for common use cases, you can also extend Rakam by writing custom event mappers and attaching them your Rakam nodes.
 Here are the list of event mappers provided by Rakam:
 
+#### Custom Event Mappers
+Allows you to write your custom event mappers with Javascript. You can perform HTTP requests, manipulate or sanitize the data with your custom Javascript code dynamically using custom event mappers. Rakam UI provides a playground for you to write your Javascript code, test it and activate it for your project. We also provide some pre-defined custom events such as Clearbit integration etc.
+
 #### IP Geolocation Module
 Attaches a set of geolocation related fields to events based on ip field of events or socket address of the event collection request.
 By default, it uses community version of [`MaxMind GeoIP API`](http://dev.maxmind.com/geoip/geoip2/downloadable/),
