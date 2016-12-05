@@ -54,8 +54,9 @@ Webhook support is available in Rakam BI and we provide templates for common ser
 
 # Scheduled Tasks
 
-Rakam tasks are basically scheduled or continuous jobs that fetches data from other services, transform them and send event data to Rakam. We have example [Twitter task](https://rakam.io/doc/buremba/rakam-twitter/master/README) that collects tweet data from Twitter in real-time and send it to Rakam. We also have scheduled jobs module in Rakam that uses services like AWS Lambda to run code with scheduled intervals and collect data to Rakam. You can right code with your favorite programming language, set the schedule interval and collect data from third party services. 
+Rakam tasks are basically scheduled jobs that fetches data from other services, transform them and send event data to Rakam. You can write Javascript code inside Rakam, and schedule them to run at specified interval. If you want to collect data from external services such as Facebook Ads, Localytics or from your IoT sensors, scheduled tasks are the best fit for you. Similar to custom event mappers, we also provide pre-defined scheduled jobs for common services such as Facebook Ads.
 
 # Importers
 You can import CSV, JSON or AVRO files directly to your Rakam project. If you're already using analytics services such as Mixpanel and want to import to Rakam, we have importers that fetches raw event data from them and send it to Rakam. Currently, we have Mixpanel integration, you can find the documentation [here](https://rakam.io/doc/buremba/rakam-data-importer/master/README).
+We also have [twitter task](https://rakam.io/doc/buremba/rakam-twitter/master/README) that collects tweet data from Twitter in real-time and send it to Rakam continuously, we use it internally for our integration tests.
 
