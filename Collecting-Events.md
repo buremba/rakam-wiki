@@ -52,11 +52,10 @@ If `_time` attribute is not set, Rakam automatically attaches the current timest
 If you want to integrate third party services with Rakam and the third party service supports Webhook, you may use our webhook support. For example, Stripe sends payment and order data, Mailgun sends mail data (unsubscribe, click, open etc.) via webhook. Webhook support is implemented as follow: You define an identifier such as `mailgun_mails` and write JS code that transforms the request body and headers and build the event using JS code. When we receive a request from `[RAKAM_API]/webhook/collect/mailgun_mails`, we invoke the JS code if it returns JSON data, we add it as a new event.
 Webhook support is available in Rakam BI and we provide templates for common services such as Mailgun and Stripe.
 
-# Tasks
+# Scheduled Tasks
 
 Rakam tasks are basically scheduled or continuous jobs that fetches data from other services, transform them and send event data to Rakam. We have example [Twitter task](https://rakam.io/doc/buremba/rakam-twitter/master/README) that collects tweet data from Twitter in real-time and send it to Rakam. We also have scheduled jobs module in Rakam that uses services like AWS Lambda to run code with scheduled intervals and collect data to Rakam. You can right code with your favorite programming language, set the schedule interval and collect data from third party services. 
 
 # Importers
-
-If you're already using analytics services such as Mixpanel and want to import to Rakam, we have importers that fetches raw event data from them and send it to Rakam. Currently, we have Mixpanel integration, you can find the documentation [here](https://rakam.io/doc/buremba/rakam-data-importer/master/README).
+You can import CSV, JSON or AVRO files directly to your Rakam project. If you're already using analytics services such as Mixpanel and want to import to Rakam, we have importers that fetches raw event data from them and send it to Rakam. Currently, we have Mixpanel integration, you can find the documentation [here](https://rakam.io/doc/buremba/rakam-data-importer/master/README).
 
