@@ -18,12 +18,15 @@
 - [Ruby Library](//github.com/rakam-io/rakam-ruby-client/master/README)
 
 
-#### Rakam BI (WIP)
+#### Rakam BI
 - [Dashboards](//github.com/buremba/rakam-wiki/master/Rakam-BI/Dashboards)
 - [Reports](//github.com/buremba/rakam-wiki/master/Rakam-BI/Reports)
 - [Collaboration](//github.com/buremba/rakam-wiki/master/Rakam-BI/Collaboration)
 - [Recipes](//github.com/buremba/rakam-wiki/master/Rakam-BI/Recipes)
 - [Security](//github.com/buremba/rakam-wiki/master/Rakam-BI/Security)
+
+#### Comparison
+- [Rakam vs Mixpanel](//github.com/buremba/rakam-wiki/master/Comparison/Mixpanel)
 
 
 #### Integrations (WIP)
