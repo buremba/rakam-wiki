@@ -27,7 +27,10 @@
 
 #### Comparison
 - [Rakam vs Mixpanel](//github.com/buremba/rakam-wiki/master/Comparison/Mixpanel)
-
+- [Rakam vs Google Analytics](//github.com/buremba/rakam-wiki/master/Comparison/Google-Analytics)
+- [Rakam vs Snowplow](//github.com/buremba/rakam-wiki/master/Comparison/Snowplow)
+- [Rakam vs Tableau](//github.com/buremba/rakam-wiki/master/Comparison/Tableau)
+- [Rakam vs Keen.io](//github.com/buremba/rakam-wiki/master/Comparison/Keen.io)
 
 #### Integrations (WIP)
 - [Twitter Datasource](//github.com/buremba/rakam-twitter/master/README)
