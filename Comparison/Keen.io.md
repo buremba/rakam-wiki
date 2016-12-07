@@ -8,7 +8,10 @@ The problem is that they use JSON based query language and it has limitations co
 We're fan of SQL, you can find out our thoughts about using other query languages for analytics data here:
 [SQL is still superior for big-data analytics](https://blog.rakam.io/why-sql-superior-for-analytic-queries-comparison-with-mixpanels-jql-ec9935f292bd)
 
-Their query language is similar to *SELECT dimension, agg_function(metric) FROM collection GROUP BY dimension ORDER BY 2 DESC*, 
+Their query language is similar to 
+
+> SELECT dimension, agg_function(metric) FROM collection GROUP BY dimension ORDER BY 2 DESC,
+
 we already have the same functionality in our Event Explorer module, you select the dimensions, metrics, ordering and get the data 
 without actually writing SQL query.
 
