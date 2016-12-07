@@ -4,17 +4,19 @@ Occasionally we get questions about the similarity between Rakam and Tableau or 
 so I wanted to add a comparison page for BI solutions. To make it clear, Rakam is not a BI product, instead a full-stack analytics platform.
 There are two products under the Rakam platform: Rakam API and Rakam UI. 
 
-Rakam API allows you collect data from multiple sources, enrich your data and collect it in your data-warehouse.
-It can be installed on your cloud provider or on-premise servers and we can manage your Rakam API cluster for you. 
-Your data is stored as part of the Rakam API, you send the data and execute your queries on it
+Rakam API allows you to collect data from multiple sources, enrich your data and collect it in your data-warehouse.
+It can be installed on your cloud provider or on-premise servers or we can manage your Rakam API cluster for you. 
+Your data is stored as part of the Rakam API product, you send the data and execute your queries on it.
 
 Rakam UI is our user interface solution for Rakam API. It allows you to run your queries with a simple interface, visualize the data,
 create custom reports and dashboards. Similar to other analytics services, you can visualize segmentation, funnel and retention reports, 
 search users or see the timeline of a user. You may think Rakam UI similar other BI solutions such as Tableau since it allows you to
-visualize the data and create charts but that's not the point: 
-It's a tool for creating user interface for your custom analytics service. 
-The interface of Rakam UI is similar to other event analytics services such as Mixpanel and Amplitude. 
-It doesn't know anything about your data, it just knows that there are events with at least two attributes; _user and _time. 
+visualize the data and create charts but in fact Rakam UI is a complementary product just for Rakam API unlike other BI solutions where you connect it to external data warehouses and the main point is exactly as follows: 
+
+> Rakam UI a tool for creating user interface for your custom analytics service. 
+
+The default interface of Rakam UI is similar to other event analytics services such as Mixpanel and Amplitude. It doesn't know anything about your data, it just knows that there are events with at least two attributes; *_user* and *_time*. 
+
 If you're familiar with Google Analytics, you may already know the metrics you have in web analytics. 
 You can just create an analytics service similar to Google Analytics with Rakam UI if that's what you need. 
 The [recipe mechanism](/doc/buremba/rakam-wiki/master/Rakam-BI/Recipes) is built for pre-defined analytics solutions, 
