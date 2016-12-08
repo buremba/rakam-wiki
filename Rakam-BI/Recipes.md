@@ -1,4 +1,4 @@
-Recipes are basically a set of configurations for your projects represented as YAML file. They include reports, dashboards, custom reports, pages and configurations of your project and can be exported from one project and imported to another project.
+Recipes are basically a sets of configurations for your projects represented as single YAML files. They include reports, dashboards, custom reports, pages and configurations of your project and can be exported from one project and imported to another project.
 
 In fact they're quite powerful because they are used for creating specialized analytics services for different industries. Let's say they we're running an e-commerce website, we can create an analytics service for an e-commerce application by creating reports for e-commerce website metrics, dashboards, funnels and retentions and export our recipe. When the recipe is imported in another project by another company or just another e-commerce website that we owned, we will have the exact same analytics service. 
 
