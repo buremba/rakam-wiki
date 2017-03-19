@@ -5,10 +5,13 @@
 - [Event Enrichment](//github.com/buremba/rakam-wiki/master/Event-Mappers)
 - [Modules](//github.com/buremba/rakam-wiki/master/Modules)
 
-#### Trackers
+#### Integrations
 - [Javascript Tracker](//github.com/buremba/rakam-javascript/master/README)
 - [IOS Tracker](//github.com/buremba/rakam-ios/master/README)
 - [Android Tracker](//github.com/buremba/rakam-android/master/README)
+- [Importing data](//github.com/buremba/rakam-wiki/master/Rakam-BI/Importing-data)
+- [External data-sources](//github.com/buremba/rakam-wiki/master/Rakam-BI/External-data-sources)
+- [Twitter data-source](//github.com/buremba/rakam-twitter/master/README)
 
 #### Client Libraries
 - [Java Library](//github.com/rakam-io/rakam-java-client/master/README)
@@ -31,10 +34,6 @@
 - [Rakam vs Snowplow](//github.com/buremba/rakam-wiki/master/Comparison/Snowplow)
 - [Rakam vs Tableau](//github.com/buremba/rakam-wiki/master/Comparison/Tableau)
 - [Rakam vs Keen.io](//github.com/buremba/rakam-wiki/master/Comparison/Keen.io)
-
-#### Integrations (WIP)
-- [Twitter Datasource](//github.com/buremba/rakam-twitter/master/README)
-- [Data Importer](//github.com/buremba/rakam-data-importer/master/README)
  
 #### Design Docs
 
