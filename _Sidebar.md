@@ -12,14 +12,7 @@
 - [Importing data](//github.com/buremba/rakam-wiki/master/Rakam-BI/Importing-data)
 - [External data-sources](//github.com/buremba/rakam-wiki/master/Rakam-BI/External-data-sources)
 - [Twitter data-source](//github.com/buremba/rakam-twitter/master/README)
-
-#### Client Libraries
-- [Java Library](//github.com/rakam-io/rakam-java-client/master/README)
-- [Php Library](//github.com/rakam-io/rakam-php-client/master/README)
-- [Python Library](//github.com/rakam-io/rakam-python-client/master/README)
-- [C# Library](//github.com/rakam-io/rakam-csharp-client/master/README)
-- [Ruby Library](//github.com/rakam-io/rakam-ruby-client/master/README)
-
+- [API Reference](https://api.rakam.io)
 
 #### Rakam BI
 - [Dashboards](//github.com/buremba/rakam-wiki/master/Rakam-BI/Dashboards)
