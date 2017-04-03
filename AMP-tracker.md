@@ -12,7 +12,26 @@ Our AMP tracker allows you to integrate Rakam in your AMPs. Rakam is an analytic
 </script>
 ```
 
-If you want to customize the implementation and add track more event, here is a more advanced use-case:
+In order to add more event attributes you may use `extraUrlParams`:
+
+```
+<amp-analytics type="rakam">
+<script type="application/json">
+  {
+    "vars": {
+      "apiEndpoint": "<rakam api url>",
+      "writeKey": "<key>",
+    },
+    "extraUrlParams": {
+      "prop.type": "post",
+      "prop.published_at": "2017-03-28",
+      "prop.author": "Emre"
+    }
+  }
+</script>
+```
+
+If you want to customize the implementation and add track even more event, here is a more advanced use-case:
 
 ```
 <amp-analytics type="rakam" id="rakam">
