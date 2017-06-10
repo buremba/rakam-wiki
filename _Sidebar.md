@@ -33,6 +33,7 @@
 - [Postgresql Backend](//github.com/buremba/rakam-wiki/master/Postgresql-Backend)
 - [PrestoDB Backend](//github.com/buremba/rakam-wiki/master/PrestoDB-Backend)
 - [Architecture](//github.com/buremba/rakam-wiki/master/Architecture)
+- [Materialized views](//github.com/buremba/rakam-wiki/master/Materialized-view)
 
 #### Contributor
 - [Developing Modules](//github.com/buremba/rakam-wiki/master/Developing-Modules)
