@@ -8,20 +8,11 @@ You don't need to define the collection schema, Rakam automatically handles sche
 
 Currently we have [Javascript tracker](https://rakam.io/doc/buremba/rakam-javascript/master/README) for websites and [Android SDK](https://rakam.io/doc/buremba/rakam-android/master/README) for Android applications. We're also actively working on [IOS tracker](https://rakam.io/doc/buremba/rakam-ios/master/README). Trackers are the preferred way to collect data because they're easy to integrate and automatically collect most of the data you need. For example, Javascript tracker automatically collect data about client machine, keep track of user ids between sessions and provide ways to collect platform related data such as [time on page](https://rakam.io/doc/buremba/rakam-javascript/master/README#timer) the user spend in website.
 
-# Client Libraries
+# RESTFul API
 
 If you want to send events directly from your applications, you can use client libraries. They're basically a wrapper that uses <sub>[RESTFul API](//api.getrakam.com/#event)*</sub>.
 
-Client APIs:
-- [Javascript Client Library](https://rakam.io/doc/rakam-io/rakam-java-client/master/README)
-- [Java Client Library](https://rakam.io/doc/rakam-io/rakam-php-client/master/README)
-- [Python Client Library](https://rakam.io/doc/rakam-io/rakam-python-client/master/README)
-- [C# Client Library](https://rakam.io/doc/rakam-io/rakam-csharp-client/master/README)
-- [Ruby Client Library](https://rakam.io/doc/rakam-io/rakam-ruby-client/master/README)
-
 Client libraries are current is in beta, they're automatically generated with Swagger. They provide classes and methods for all API endpoints in your Rakam API, you can also directly use [RESTFul API](https://api.rakam.io) to send data to Rakam.
-
-# RESTFul Libraries
 
 <sub>[RESTFul API](//api.getrakam.com/#event)*</sub> powers trackers and client libraries. You can always use the directly. Here is an example event:
 
